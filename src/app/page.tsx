@@ -8,12 +8,12 @@ import FindAJob from "@/components/FindAJob";
 
 export default function Home() {
   return (
-    <div className={"flex flex-col"}>
-        <HeroesSection/>
-       <Category/>
-        <HowItWorks/>
-        <FindAJob/>
-    </div>
+      <div className={"flex flex-col"}>
+          <HeroesSection/>
+          <Category/>
+          <HowItWorks/>
+          <FindAJob/>
+      </div>
   );
 }
 

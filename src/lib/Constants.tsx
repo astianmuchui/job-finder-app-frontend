@@ -1,3 +1,5 @@
+import {BadgeDollarSign, BriefcaseBusiness, Cpu, Figma, GraduationCap, HeartPulse, Twitch} from "lucide-react";
+
 export const  name = "GigHaven";
 export const Highlight = ({
                               children,
@@ -63,3 +65,49 @@ export const CARDS = [
         ),
     }
     ]
+
+export const JobCategories = [
+    {
+        id:0,
+        name: "Finance",
+        icon: <BadgeDollarSign size={20} className={"mr-4"}/>,
+
+    }
+    ,
+    {
+        id:1,
+        name: "Tech",
+        icon: <Cpu size={20} className={"mr-4"}/>,
+
+    }
+    ,
+    {
+        id:2,
+        name: "Health",
+        icon: <HeartPulse  size={20} className={"mr-4"}/>,
+    }
+    ,
+    {
+        id:3,
+        name: "Education",
+        icon: <GraduationCap  size={20} className={"mr-4"}/>,
+    }
+    ,
+    {
+        id:4,
+        name: "Marketing",
+        icon: <Twitch  size={20} className={"mr-4"}/>,
+    }
+    ,
+    {
+        id:5,
+        name: "Sales",
+        icon: <BadgeDollarSign  size={20} className={"mr-4"}/>,
+    },
+    {
+        id:6,
+        name: "Design",
+        icon: <Figma   size={20} className={"mr-4"}/>,
+    }
+
+]

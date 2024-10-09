@@ -9,7 +9,7 @@ const HowItWorks = () => {
             <div className={"flex flex-col space-y-8 justify-center items-start w-[40%] pl-6"}>
                 <h1 className={"border-2 pt-2 pb-2 pl-6 pr-6 bg-purple-200 w-56 text-center text-black rounded-full text-xl"}>How It
                     works</h1>
-                <h1 className={"text-4xl"}>Explore jobs from 1000+ companies</h1>
+                <h1 className={"text-5xl"}>Explore jobs from 1000+ companies</h1>
                 <p>
                     Log in to access a personalized job feed tailored to your preferences based on your search and
                     application history. Easily track and refer to your previous applications. Use our advanced filters
