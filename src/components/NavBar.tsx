@@ -1,6 +1,7 @@
 import {Button, Dropdown, Navbar} from "flowbite-react";
 import {name} from "@/lib/Constants";
 import {BriefcaseBusiness, House, NotebookPen} from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 const NavBar = () => {
@@ -9,7 +10,7 @@ const NavBar = () => {
             <Navbar fluid rounded className={"bg-white/20 backdrop:filter backdrop:backdrop-blur-md w-full p-4"}>
                 <div className="flex items-center justify-between w-full">
                     <Navbar.Brand href="https://flowbite.com/">
-                            <span className="self-center whitespace-nowrap text-xl font-semibold text-black">
+                            <span className="self-center whitespace-nowrap text-xl font-semibold text-black tracking-wider px-3">
                                 {name}
                             </span>
                     </Navbar.Brand>
@@ -40,7 +41,7 @@ const NavBar = () => {
                             <div className={"space-y-4 text-black"}>
                                 <Dropdown.Item className={"m-2"}>
                                     <Navbar.Link href="/navbars" active
-                                                 className={"text-lg flex items-center justify-center text-black"}>
+                                                 className={"text-md mx-3 flex items-center justify-center text-black"}>
                                         <House size={20} className={"mr-4"}/>
                                         Home
                                     </Navbar.Link>
@@ -48,7 +49,7 @@ const NavBar = () => {
                                 <Dropdown.Divider className={"h-[1px] bg-black/50"}/>
                                 <Dropdown.Item className={"m-2"}>
                                     <Navbar.Link href="/navbars"
-                                                 className={"text-lg flex items-center justify-center"}>
+                                                 className={"text-md mx-3 flex items-center justify-center"}>
                                         <BriefcaseBusiness size={20} className={"mr-4"}/>
                                         Jobs
                                     </Navbar.Link>
@@ -56,16 +57,18 @@ const NavBar = () => {
                                 <Dropdown.Divider className={"h-[1px] bg-black/50"}/>
                                 <Dropdown.Item className={"m-2"}>
                                     <Navbar.Link href="/navbars"
-                                                 className={"text-lg flex items-center justify-center"}>
+                                                 className={"text-md mx-3 flex items-center justify-center"}>
                                         <NotebookPen size={20} className={"mr-4"}/>
                                         Applications
                                     </Navbar.Link>
                                 </Dropdown.Item>
                                 <Dropdown.Divider className={"h-[1px] bg-black/50"}/>
                                 <Dropdown.Item>
-                                    <Button className={"bg-purple-700 p-2 text-lg rounded-xl text-white mx-auto"}>
-                                        Get started
-                                    </Button>
+                                    <Link href="/">
+                                        <button className="w-max p-3 bg-gradient-to-tr from-purple-800/70 via-purple-900/70 to-purple-950/70 text-white rounded-lg hover:bg-gradient-to-br">
+                                            Get Started
+                                        </button>
+                                    </Link>
                                 </Dropdown.Item>
                             </div>
                         </Dropdown>
@@ -81,8 +84,12 @@ const NavBar = () => {
                         <Navbar.Link href="#" className={ "underline underline-offset-8 decoration-2 decoration-transparent hover:decoration-purple-800/70"}>Pricing</Navbar.Link>
                         <Navbar.Link href="#" className={" underline underline-offset-8 decoration-2 decoration-transparent hover:decoration-purple-800/70"}>Contact</Navbar.Link>
 
-                        <Button className={"bg-purple-800/70 p-2 text-lg rounded-xl text-white hover:bg-transparent hover:border-2 hover:outline-none hover:border-purple-800/70 hover:text-black"}>Get started</Button>
-                    </div>
+                        <Link href="/">
+                                        <button className="w-max p-3 bg-gradient-to-tr from-purple-800/70 via-purple-900/70 to-purple-950/70 text-white rounded-lg hover:bg-gradient-to-br">
+                                            Get Started
+                                        </button>
+                                    </Link>
+                        </div>
                 </div>
             </Navbar>
         </div>
