@@ -40,7 +40,7 @@ const NavBar = () => {
                         >
                             <div className={"space-y-4 text-black"}>
                                 <Dropdown.Item className={"m-2"}>
-                                    <Navbar.Link href="/navbars" active
+                                    <Navbar.Link href="#home" active
                                                  className={"text-md mx-3 flex items-center justify-center text-black"}>
                                         <House size={20} className={"mr-4"}/>
                                         Home
@@ -48,7 +48,7 @@ const NavBar = () => {
                                 </Dropdown.Item>
                                 <Dropdown.Divider className={"h-[1px] bg-black/50"}/>
                                 <Dropdown.Item className={"m-2"}>
-                                    <Navbar.Link href="/navbars"
+                                    <Navbar.Link href="#category"
                                                  className={"text-md mx-3 flex items-center justify-center"}>
                                         <BriefcaseBusiness size={20} className={"mr-4"}/>
                                         Jobs

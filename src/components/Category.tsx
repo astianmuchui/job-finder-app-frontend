@@ -36,7 +36,7 @@ const Category = () => {
     };
 
     return (
-        <div className={"bg-purple-100 text-black h-[80vh] flex flex-col space-y-10"}>
+        <div id={"category"} className={"bg-purple-100 text-black h-[90vh] lg:h-[80vh] flex flex-col space-y-10"}>
             <CompanyMarquee/>
             <div className={" flex flex-col items-center space-y-4 mt-4"}>
                 <h1 className={"font-bold text-xl text-center lg:text-5xl lg:text-center"}>Browse By Categories</h1>
