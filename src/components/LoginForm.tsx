@@ -37,7 +37,7 @@ const LoginForm = () => {
                     </div>
                     <div className={"flex flex-row justify-end  w-[80%]"}>
                         <p>
-                            <a href="#" className={"text-purple-800/70 hover:text-purple-900/70"}>
+                            <a href="/forgot_password" className={"text-purple-800/70 hover:text-purple-900/70"}>
                                 Forgot Password?
                             </a>
                         </p>
