@@ -13,8 +13,8 @@ const LoginForm = () => {
     return (
         <div className={`flex flex-col my-auto h-[100%] justify-center space-y-4`}>
             <div className={"flex flex-col items-center space-y-4 w-[90%]"}>
-                <h1 className={"text-4xl font-bold text-center text-black"}>Welcome Back !</h1>
-                <p className={"text-black font-normal"}>
+                <h1 className={"text-2xl lg:text-4xl font-bold text-center text-black"}>Welcome Back !</h1>
+                <p className={"text-black font-normal text-lg text-center"}>
                     Unlock Opportunities: Your Next Career Move Awaits
                 </p>
             </div>

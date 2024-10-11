@@ -13,7 +13,7 @@ const ResetPassword = () => {
         <div className={"flex flex-col my-auto h-[100%] justify-center space-y-4"}>
             <div className={"flex flex-col items-start mx-auto  space-y-4 w-[80%]"}>
 
-                <h1 className={"text-4xl font-bold text-center text-black"}>Reset your Password </h1>
+                <h1 className={" text-2xl lg:text-4xl font-bold text-center text-black"}>Reset your Password </h1>
 
             </div>
             <div className={"space-y-6 w-[90%]"}>
