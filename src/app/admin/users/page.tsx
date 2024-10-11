@@ -1,21 +1,25 @@
 import RootLayout from "../layout";
 import Link from "next/link";
 import { PlusIcon } from "lucide-react";
+import Modal from "@/components/Modal";
+
 const page = () => {
     return (
         <RootLayout>
+
+            <Modal trigger="trigger">
+                fusgjd
+            </Modal>
+
             <div className="w-full h-full p-3">
                 <h1 className="text-xl font-bold text-purple-900">Manage Users</h1>
 
-
-
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-5 ">
-                    <div className="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-900">
+                    <div className="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-3  pt-1 bg-white ">
                         <div>
-                            <Link href="/" className="bg-gradient-to-br from-purple-700/70 via-purple-800/70 to-purple-900 p-3 rounded-xl mt-1 hover:bg-gradient-to-tr">
-
+                            <button className="bg-gradient-to-br cursor-pointer  from-purple-700/80 via-purple-800/70 to-purple-900 p-2 text-sm rounded-xl mt-1 hover:bg-gradient-to-tr" id="trigger">
                             Add new
-                            </Link>
+                            </button>
                         </div>
                         <label htmlFor="table-search" className="sr-only">Search</label>
                         <div className="relative">
