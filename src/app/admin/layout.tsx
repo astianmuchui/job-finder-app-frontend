@@ -67,12 +67,7 @@ export default function RootLayout({
                   Sign Out
                 </Link>
               </li>
-              <li className="border-b border-b-purple-900/50 mb-3">
-              <Link href="#" className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-900 text-sm font-medium">
-                  <LogOut className="text-purple-950 mr-2  bg-white box-content p-1 h-5 w-5 object-cover rounded-full" size={60} strokeWidth={2}></LogOut>
-                  Back to website
-                </Link>
-              </li>
+
 
             </ul>
           </div>
