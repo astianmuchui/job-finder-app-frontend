@@ -8,14 +8,46 @@ datasource db {
 }
 
 model Admins {
-  id       Int    @id @default(autoincrement())
+  id       String @id @default(uuid())
   username String @db.VarChar(255)
   password String @db.VarChar(255)
 }
 
 model Users {
-  id       Int    @id @default(autoincrement())
-  username String @db.VarChar(255)
-  email    String @unique
-  password String @db.VarChar(255)
+  id            String    @id @default(uuid())
+  username      String    @db.VarChar(255)
+  email         String    @unique
+  password      String    @db.VarChar(255)
+  emailVerified Boolean   @default(false)
+  session       session[]
+
+  verificationCode    verificationCode[]
+  passwordResetTokens passwordResetTokens[]
+}
+
+model session {
+  id        String   @id @default(uuid())
+  userId    String
+  expiresAt DateTime
+
+  users Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model verificationCode {
+  id        String   @id @default(uuid())
+  code      String
+  userId    String
+  email     String
+  expire_at DateTime
+
+  users Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model passwordResetTokens {
+  id         String   @id @default(uuid())
+  userId     String
+  token_hash String   @unique
+  expiresAt  DateTime
+
+  user Users @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
