@@ -7,6 +7,7 @@ import {sendEmail} from "@/lib/email";
 
 export async function POST (request: NextRequest) {
     try {
+        console.log("Forgot Password request received");
         const res = await request.json();
         const sessionId = cookies().get(lucia.sessionCookieName)?.value ?? null;
         if (!sessionId) {
@@ -36,7 +37,7 @@ export async function POST (request: NextRequest) {
 
         const token = await createPasswordResetToken(user.id);
         console.log(token);
-        const tokenLink = "http://localhost:3000/resetPassword" + token;
+        const tokenLink = `http://localhost:3000/resetPassword/${token}`;
 
         const subject = "Password Reset";
         const html = `<p>Click <a href="${tokenLink}">here</a> to reset your password</p>`;
@@ -55,3 +56,4 @@ export async function POST (request: NextRequest) {
         );
     }
 }
+
