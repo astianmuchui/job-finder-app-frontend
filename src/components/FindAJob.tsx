@@ -2,10 +2,15 @@ import {JobCategories} from "@/lib/Constants";
 import SmallCategoryCard from "@/components/SmallCategoryCard";
 import JobCard from "@/components/JobCard";
 import React from "react";
+import Link from "next/link";
 
-const FindAJob = () => {
+type FindAJobProps = {
+    id: string
+}
+
+const FindAJob = ({id}:FindAJobProps) => {
     return (
-        <div className={"bg-purple-100 h-[85rem] space-y-6 pt-10"}>
+        <div id={id} className={"bg-purple-100 h-[85rem] space-y-6 pt-10"}>
             <div className={"flex flex-col justify-between items-center text-black space-y-6 pt-6"}>
                 <h1 className={"text-2xl lg:text-5xl font-bold"}>Jobs of the day</h1>
                 <p className={"text-lg text-center lg:text-xl font-light "}>
@@ -33,11 +38,13 @@ const FindAJob = () => {
                 className={"overflow-auto flex flex-wrap justify-center items-center gap-2 w-[90%] h-[60rem] mx-auto p-4 mt-6"}>
                 {Array.from({length: 8}, (_, index) => <JobCard key={index}/>)}
             </div>
-            <div className={"flex justify-center items-center mx-auto mt-6"}>
-                <button
-                    className={"bg-purple-800/70 p-2 text-lg rounded-xl text-black hover:bg-transparent hover:border-2 hover:outline-none hover:border-purple-800/70 hover:text-black lg:w-[15%]"}>
-                    Discover More
-                </button>
+            <div className={"flex justify-center items-center mx-auto mt-6 w-[40%]"}>
+                <Link href="/">
+                    <button
+                        className="w-max py-3 px-6 bg-gradient-to-tr from-purple-800/70 via-purple-900/70 to-purple-950/70 text-white rounded-lg hover:bg-gradient-to-br">
+                        Explore More
+                    </button>
+                </Link>
             </div>
 
 

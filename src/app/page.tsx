@@ -12,11 +12,11 @@ export default function Home() {
   return (
       <div className={"flex flex-col"}>
           <NavBar/>
-          <HeroesSection/>
-          <Category/>
-          <HowItWorks/>
-          <FindAJob/>
-          <Footer/>
+          <HeroesSection id={"home"}/>
+          <Category id={"category"}/>
+          <HowItWorks id={"howitworks"}/>
+          <FindAJob id={"jobs"}/>
+          <Footer />
       </div>
   );
 }
