@@ -34,7 +34,7 @@ export  async function POST (req: NextRequest) {
         });
 
         if (!token || isWithinExpirationDate(token.expiresAt)) {
-            return NextResponse.json({ message: "User does not exist" });
+            return NextResponse.json({ message: "Your token has expired request for another one" });
         }
 
         await lucia.invalidateSession(sessionId);

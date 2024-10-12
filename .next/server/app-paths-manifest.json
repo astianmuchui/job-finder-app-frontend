@@ -1,1 +1,7 @@
-{}
+{
+  "/(auth)/verifyEmail/page": "app/(auth)/verifyEmail/page.js",
+  "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/page": "app/page.js",
+  "/(auth)/forgot_password/page": "app/(auth)/forgot_password/page.js",
+  "/(auth)/resetPassword/[verificationCode]/page": "app/(auth)/resetPassword/[verificationCode]/page.js"
+}

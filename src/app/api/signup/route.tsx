@@ -7,6 +7,7 @@ import {generateEmailVerificationCode} from "@/lib/functions";
 import {sendEmail} from "@/lib/email";
 
 export  async  function POST(req: NextRequest ) {
+    console.log("first signup request");
     try {
         console.log("Signup request received");
 
@@ -27,6 +28,8 @@ export  async  function POST(req: NextRequest ) {
         }
     });
 
+    console.log(userExists);
+
     if(userExists) {
         return NextResponse.json(
             {
@@ -40,7 +43,7 @@ export  async  function POST(req: NextRequest ) {
             data: {
                 id: userId,
                 email: user.email,
-                username: user.name,
+                username: user.username,
                 password: hashedPassword,
             }
         });

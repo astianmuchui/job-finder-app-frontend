@@ -40,7 +40,7 @@ export  async function POST (request: NextRequest) {
         }
 
         if (!isWithinExpirationDate(verificationCode.expire_at)) {
-            return NextResponse.json({error: "Verification code expired"}, {status: 401});
+            return NextResponse.json({error: "Your verification Code has expired request for a new one"}, {status: 401});
         }
 
         await prisma.users.update({
