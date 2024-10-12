@@ -20,6 +20,7 @@ type ResetSchema = z.infer<typeof ResetSchema>
 
 const ResetPassword = () => {
     const router = useRouter();
+    const [serverError, setServerError] = useState<string | null>(null);
     const {verificationCode} = useParams();
     const {register, handleSubmit, formState: {errors, isSubmitting}} = useForm<ResetSchema>({
         resolver: zodResolver(ResetSchema)
@@ -33,7 +34,7 @@ const ResetPassword = () => {
                 router.push("/login");
             }
         }).catch((error) => {
-            console.error(error);
+            setServerError(error.response.data.message || "Failed to reset password");
         });
 
     };
@@ -75,6 +76,7 @@ const ResetPassword = () => {
                     </div>
                     {errors.confirmPassword &&
                         <p className={"text-red-500 self-start mx-14"}>{errors.confirmPassword.message}</p>}
+                    {serverError && <p className={"text-red-500 self-start mx-14"}>{serverError}</p>}
                     <div className={"flex w-[80%] space-x-4"}>
                         <button disabled={isSubmitting} type="submit"
                                 className={"w-[80%] mx-auto p-2 bg-gradient-to-tr from-purple-800/70 via-purple-900/70 to-purple-950/70 text-white rounded-3xl hover:bg-gradient-to-br"}>

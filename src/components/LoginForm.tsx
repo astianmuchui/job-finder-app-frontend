@@ -19,6 +19,7 @@ type LoginSchema = z.infer<typeof LoginSchema>
 
 const LoginForm = () => {
     const router = useRouter();
+    const[serverError, setServerError] = useState<string | null>(null);
 
     const {register, handleSubmit, formState: {errors, isSubmitting}} = useForm<LoginSchema>({
         resolver: zodResolver(LoginSchema)
@@ -30,7 +31,7 @@ const LoginForm = () => {
                 router.push("/");
             }
         }).catch((error) => {
-            console.error(error);
+            setServerError(error.response.data.message || "Failed to login");
         })
         console.log(data);
     }
@@ -68,6 +69,7 @@ const LoginForm = () => {
 
                     </div>
                     {errors.password && <p className={"text-red-500 self-start mx-14"}>{errors.password.message}</p>}
+                    {serverError && <p className={"text-red-500 self-start mx-14"}>{serverError}</p>}
                     <div className={"flex flex-row justify-end  w-[80%]"}>
                         <p>
                             <a href="/forgot_password" className={"text-purple-800/70 hover:text-purple-900/70"}>

@@ -23,6 +23,7 @@ const SignupSchema = z.object({
 type SignupSchema = z.infer<typeof SignupSchema>
 
 const SignUpForm = () => {
+    const[serverError, setServerError] = useState<string | null>(null);
 
     const {register, handleSubmit , formState: {errors, isSubmitting}} = useForm<SignupSchema>({
         resolver: zodResolver(SignupSchema)
@@ -38,10 +39,8 @@ const SignUpForm = () => {
             if(response.status === 200){
                 router.push("/verifyEmail");
             }
-
-            console.log(response.data);
         }).catch((error) => {
-            console.error(error);
+            setServerError(error.response.data.message || "Failed to sign up");
         });
     }
 
@@ -89,6 +88,7 @@ const SignUpForm = () => {
                         { passwordVisible ? <Eye size={25} className={"text-black/50 mr-2 ]"} onClick={togglePasswordVisibility}/> : <EyeOff size={23} className={"text-black/50 mr-2 ]"} onClick={togglePasswordVisibility}/> }
                     </div>
                         {errors.confirmPassword && <p className={"text-red-500 self-start mx-14"}>{errors.confirmPassword.message}</p>}
+                        {serverError && <p className={"text-red-500 self-start mx-14"}>{serverError}</p>}
 
                     <button type="submit" disabled={isSubmitting}
                             className={"w-[80%] p-2 bg-gradient-to-tr from-purple-800/70 via-purple-900/70 to-purple-950/70 text-white rounded-3xl hover:bg-gradient-to-br"}>

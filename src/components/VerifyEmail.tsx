@@ -20,6 +20,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {useForm} from "react-hook-form";
 import axios from "axios";
 import {useRouter} from "next/navigation";
+import {useState} from "react";
 
 const VerifyEmailSchema = z.object({
     code: z.string({required_error: "Code is required"}).min(6, {message: "Verification Code must be 6 digits"}),
@@ -28,6 +29,7 @@ const VerifyEmailSchema = z.object({
 
 const VerifyEmail = () => {
     const router = useRouter()
+    const [serverError, setServerError] = useState<string | null>(null)
     const form = useForm<z.infer<typeof VerifyEmailSchema>>({
         resolver: zodResolver(VerifyEmailSchema),
         defaultValues: {
@@ -55,7 +57,7 @@ const VerifyEmail = () => {
                 }
             }
         ).catch((error) => {
-            console.error(error)
+            setServerError(error.response.data.error)
         })
     }
 
@@ -105,6 +107,7 @@ const VerifyEmail = () => {
                         </FormItem>
                     )}
                     />
+                    {serverError && <p className={"text-red-500 self-start mx-14"}>{serverError}</p>}
 
                     <div className={"flex w-[80%] space-x-4 mt-10"}>
                         <button type="button" onClick={()=> resendCode()}
