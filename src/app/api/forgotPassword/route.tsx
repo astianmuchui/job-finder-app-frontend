@@ -1,24 +1,13 @@
-import {lucia} from "@/lib/lucia";
 import prisma from "@/lib/prisma";
 import {NextRequest, NextResponse} from "next/server";
-import {cookies} from "next/headers";
 import {createPasswordResetToken} from "@/lib/functions";
 import {sendEmail} from "@/lib/email";
+import {lucia} from "@/lib/lucia";
 
 export async function POST (request: NextRequest) {
     try {
         console.log("Forgot Password request received");
         const res = await request.json();
-        const sessionId = cookies().get(lucia.sessionCookieName)?.value ?? null;
-        if (!sessionId) {
-            return NextResponse.json({error: "Unauthorized"}, {status: 401});
-        }
-
-        const {user} = await lucia.validateSession(sessionId);
-
-        if (!user) {
-            return NextResponse.json({error: "Unauthorized"}, {status: 401});
-        }
 
         const email = res.email;
 
@@ -30,12 +19,12 @@ export async function POST (request: NextRequest) {
 
         if (!userExists) {
             return NextResponse.json(
-                { message: "User does not exist" },
+                { message: "Kindly input the email you used to register" },
                 { status: 404 }
             );
         }
 
-        const token = await createPasswordResetToken(user.id);
+        const token = await createPasswordResetToken(userExists.id);
         console.log(token);
         const tokenLink = `http://localhost:3000/resetPassword/${token}`;
 
@@ -44,9 +33,18 @@ export async function POST (request: NextRequest) {
 
         await sendEmail({to: email, subject: subject , html: html});
 
+        const session = await lucia.createSession(userExists.id, {});
+        const sessionCookie = lucia.createSessionCookie(session.id);
+
+
         return NextResponse.json(
             { message: "Password reset email sent" },
-            { status: 200 }
+            {
+                status: 200,
+                headers: {
+                    "Set-Cookie": sessionCookie.serialize(),
+                }
+            }
         );
     } catch (error) {
         console.error("Error:", error);
