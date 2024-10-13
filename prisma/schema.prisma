@@ -23,6 +23,10 @@ model Users {
 
   verificationCode    verificationCode[]
   passwordResetTokens passwordResetTokens[]
+
+  job job[]
+
+  application application[]
 }
 
 model session {
@@ -50,4 +54,56 @@ model passwordResetTokens {
   expiresAt  DateTime
 
   user Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model job {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  location    String
+  salary      Int
+  companyId   String
+  userId      String
+  deadline    DateTime
+  createdAt   DateTime @default(now())
+
+  users   Users   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  company company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  application application[]
+}
+
+model application {
+  id        String   @id @default(uuid())
+  userId    String
+  jobId     String
+  status    String
+  createdAt DateTime @default(now())
+  comemntId String
+
+  comment comment[]
+
+  users Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+  job   job   @relation(fields: [jobId], references: [id], onDelete: Cascade)
+}
+
+model company {
+  id          String @id @default(uuid())
+  name        String
+  location    String
+  description String
+
+  comment comment[]
+  job     job[]
+}
+
+model comment {
+  id            String   @id @default(uuid())
+  companyId     String
+  applicationId String
+  comment       String
+  createdAt     DateTime @default(now())
+
+  company     company     @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  application application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
 }
