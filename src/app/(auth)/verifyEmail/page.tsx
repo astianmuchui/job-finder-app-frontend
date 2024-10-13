@@ -1,6 +1,6 @@
 
-import AuthPage from "@/components/AuthPage";
-import VerifyEmail from "@/components/VerifyEmail";
+import AuthPage from "@/app/(auth)/_components/AuthPage";
+import VerifyEmail from "@/app/(auth)/_components/VerifyEmail";
 
 const VerifyEmailPage = () => {
 
