@@ -5,8 +5,11 @@ import React, {useState} from "react";
 
 // Total number of cards (adjust this to your data)
 const TOTAL_CARDS = 10;
+type CategoryProps = {
+    id: string
+}
 
-const Category = () => {
+const Category = ({id}: CategoryProps) => {
 
     const [currentPage, setCurrentPage] = useState(0);
 
@@ -36,7 +39,7 @@ const Category = () => {
     };
 
     return (
-        <div id={"category"} className={"bg-purple-100 text-black h-[90vh] lg:h-[80vh] flex flex-col space-y-10"}>
+        <div id={id} className={"bg-purple-100 text-black h-[90vh] lg:h-[80vh] flex flex-col space-y-10"}>
             <CompanyMarquee/>
             <div className={" flex flex-col items-center space-y-4 mt-4"}>
                 <h1 className={"font-bold text-xl text-center lg:text-5xl lg:text-center"}>Browse By Categories</h1>

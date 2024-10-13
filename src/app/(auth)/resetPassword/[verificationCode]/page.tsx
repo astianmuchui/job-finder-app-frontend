@@ -1,5 +1,5 @@
-import AuthPage from "@/components/AuthPage";
-import ResetPassword from "@/components/ResetPassword";
+import AuthPage from "@/app/(auth)/_components/AuthPage";
+import ResetPassword from "@/app/(auth)/_components/ResetPassword";
 
 
 const ResetPasswordPage = () => {

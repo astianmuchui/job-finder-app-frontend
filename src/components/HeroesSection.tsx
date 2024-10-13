@@ -4,10 +4,14 @@ import {name} from "@/lib/Constants";
 import {Search} from "lucide-react";
 import Link from "next/link";
 
-const HeroesSection = () => {
+type HeroesProps ={
+    id: string
+}
+
+const HeroesSection = ({id}:HeroesProps) => {
     return (
         <>
-            <div id={"home"} className={"overflow-hidden relative w-full h-[90vh]"}>
+            <div id={id} className={"overflow-hidden relative w-full h-[90vh]"}>
 
                 <div className={"text-white bg-purple-100 lg:pb-0  lg:mt-16 w-full flex  h-[100%]"}>
                     <div
@@ -31,7 +35,7 @@ const HeroesSection = () => {
                             <Link href="/">
                             <button
                                     className="w-max p-3 bg-gradient-to-tr from-purple-800/70 via-purple-900/70 to-purple-950/70 text-white rounded-lg hover:bg-gradient-to-br">
-                                    Get Started
+                                    Search
                                 </button>
                             </Link>
                         </div>

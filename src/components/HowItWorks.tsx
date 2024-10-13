@@ -3,9 +3,13 @@ import {CARDS} from "@/lib/Constants";
 import {CardStack} from "@/components/ui/card-stack";
 import Link from "next/link";
 
-const HowItWorks = () => {
+type HowItWorksProps = {
+    id: string
+}
+
+const HowItWorks = ({id}: HowItWorksProps) => {
     return (
-        <div className={"bg-purple-800/70 flex flex-col h-[70vh] lg:flex lg:flex-row "}>
+        <div id={id} className={"bg-purple-800/70 flex flex-col h-[70vh] lg:flex lg:flex-row "}>
 
             <div className={"flex flex-col space-y-8 justify-center my-auto items-start lg:w-[40%] pl-6"}>
                 <h1 className={"border-2 pt-2 pb-2 pl-6 pr-6 bg-purple-200 w-56 text-center text-black rounded-full text-xl"}>How It
