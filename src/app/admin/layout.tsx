@@ -30,39 +30,39 @@ export default function RootLayout({
             <h1 className="text-purple-500 font-bold tracking-wider mb-6 ml-2 text-xl">GigHaven Admin</h1>
             <ul className="space-y-2 font-medium">
               <li className="border-b border-b-purple-900/50 mb-3">
-                <Link href="#" className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-900 text-sm font-medium">
+                <Link href="/admin/" className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-900 text-sm font-medium">
                   <HomeIcon className="text-purple-950 mr-2  bg-white box-content p-1 h-5 w-5 object-cover rounded-full" size={60} strokeWidth={2}></HomeIcon>
                   Dashboard
                 </Link>
               </li>
               <li className="border-b border-b-purple-900/50 mb-3 ">
-              <Link href="#" className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-900 text-sm font-medium">
+              <Link href="/admin/users" className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-900 text-sm font-medium">
                   <UserIcon className="text-purple-950 mr-2  bg-white box-content p-1 h-5 w-5 object-cover rounded-full" size={60} strokeWidth={2}></UserIcon>
                   Manage Users
                 </Link>
               </li>
               <li className="border-b border-b-purple-900/50 mb-3 ">
 
-              <Link href="#" className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-900 text-sm font-medium">
+              <Link href="/admin/jobs" className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-900 text-sm font-medium">
                   <PaperclipIcon className="text-purple-950 mr-2  bg-white box-content p-1 h-5 w-5 object-cover rounded-full" size={60} strokeWidth={2}></PaperclipIcon>
                   Manage Jobs
                 </Link>
               </li>
               <li className="border-b border-b-purple-900/50 mb-3">
-              <Link href="#" className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-900 text-sm font-medium">
+              <Link href="/admin/applications" className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-900 text-sm font-medium">
                   <UserPen className="text-purple-950 mr-2  bg-white box-content p-1 h-5 w-5 object-cover rounded-full" size={60} strokeWidth={2}></UserPen>
                   Manage Applications
               </Link>
               </li>
               <li className="border-b border-b-purple-900/50 mb-3">
-              <Link href="#" className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-900 text-sm font-medium">
+              <Link href="/admin/recruiters" className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-900 text-sm font-medium">
                   <UserCog2Icon className="text-purple-950 mr-2  bg-white box-content p-1 h-5 w-5 object-cover rounded-full" size={60} strokeWidth={2}></UserCog2Icon>
                   Manage Recruiters
                 </Link>
               </li>
 
               <li className="border-b border-b-purple-900/50 mb-3">
-              <Link href="#" className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-900 text-sm font-medium">
+              <Link href="/admin/logout" className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-900 text-sm font-medium">
                   <LogOut className="text-purple-950 mr-2  bg-white box-content p-1 h-5 w-5 object-cover rounded-full" size={60} strokeWidth={2}></LogOut>
                   Sign Out
                 </Link>

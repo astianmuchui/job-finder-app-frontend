@@ -1,21 +1,22 @@
 import RootLayout from "../layout";
 import Link from "next/link";
 import { PlusIcon } from "lucide-react";
+import Modal from "@/components/Modal";
+
 const page = () => {
     return (
         <RootLayout>
+
+
             <div className="w-full h-full p-3">
                 <h1 className="text-xl font-bold text-purple-900">Manage Users</h1>
 
-
-
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-5 ">
-                    <div className="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-900">
+                    <div className="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-3  pt-1 bg-white ">
                         <div>
-                            <Link href="/" className="bg-gradient-to-br from-purple-700/70 via-purple-800/70 to-purple-900 p-3 rounded-xl mt-1 hover:bg-gradient-to-tr">
-
-                            Add new
-                            </Link>
+                            <button className="bg-gradient-to-br cursor-pointer  from-purple-700/80 via-purple-800/70 to-purple-900 p-2 text-sm rounded-xl mt-1 hover:bg-gradient-to-tr" id="trigger">
+                                Add new
+                            </button>
                         </div>
                         <label htmlFor="table-search" className="sr-only">Search</label>
                         <div className="relative">
@@ -27,6 +28,29 @@ const page = () => {
                             <input type="text" id="table-search-users" className="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-gray-50 focus:border-1 focus:border-gray-100 focus:outline-0" placeholder="Search for users" />
                         </div>
                     </div>
+                    <Modal trigger="#trigger">
+                        <div className="w-full h-full p-3">
+                            <h1 className="text-xl font-bold text-purple-900">Add User</h1>
+                            <form className="w-full  mt-6">
+                                <div className="mb-5">
+                                    <label htmlFor="name" className="block mb-2 text-md font-bold text-purple-900 capitalize">Name</label>
+                                    <input type="text" id="name" className="w-full  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block p-2.5 dark:bg-gray-700 " placeholder="John doe" required />
+                                </div>
+                                <div className="mb-5">
+                                    <label htmlFor="email" className="block mb-2 text-md font-bold text-purple-900 capitalize">Email Address</label>
+                                    <input type="email" id="email" className="w-full  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block p-2.5 dark:bg-gray-700 " placeholder="name@mail.com" required />
+                                </div>
+                                <div className="mb-5">
+                                    <label htmlFor="password" className="block mb-2 text-md font-bold text-purple-900 capitalize"> password</label>
+                                    <input type="password" id="password" className="w-full  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block p-2.5 dark:bg-gray-700 " required />
+                                </div>
+
+                                <button type="submit" className="text-white bg-gradient-to-br from-purple-700/80 via-purple-800/70 to-purple-900 p-3 rounded-xl mt-1 hover:bg-gradient-to-tr focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium  text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+                            </form>
+
+                        </div>
+                    </Modal>
+
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
