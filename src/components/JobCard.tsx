@@ -3,7 +3,7 @@ import { MapPin, Clock, Briefcase } from "lucide-react"; // Add icons like MapPi
 
 const JobCard = () => {
     return (
-        <div className="flex flex-col space-y-3 bg-black/10 shadow-lg min-w-[20%] min-h-[400px] lg:h-[400px] lg:w-[20%] mx-auto rounded-xl p-4 ">
+        <div className="flex flex-col space-y-3 bg-black/10 shadow-lg min-w-[20%] min-h-[400px] lg:h-[400px] lg:w-[20%] resize-none mx-auto rounded-xl p-4 ">
             <div className="flex items-center space-x-3">
                 <Image src="/logos/SAF-MAIN-LOGO.png" alt={"logo"} width={70} height={70} className="rounded-full"/>
                 <div>

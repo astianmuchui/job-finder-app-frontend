@@ -10,7 +10,7 @@ import NavBar from "@/components/NavBar";
 
 export default function Home() {
   return (
-      <div className={"flex flex-col"}>
+      <div className={"flex flex-col scrollbar-webkit"}>
           <NavBar/>
           <HeroesSection id={"home"}/>
           <Category id={"category"}/>
