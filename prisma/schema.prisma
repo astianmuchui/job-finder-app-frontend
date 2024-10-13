@@ -24,8 +24,6 @@ model Users {
   verificationCode    verificationCode[]
   passwordResetTokens passwordResetTokens[]
 
-  job job[]
-
   application application[]
 }
 
@@ -61,30 +59,33 @@ model job {
   title       String
   description String
   location    String
+  type        String
   salary      Int
   companyId   String
-  userId      String
   deadline    DateTime
   createdAt   DateTime @default(now())
 
-  users   Users   @relation(fields: [userId], references: [id], onDelete: Cascade)
   company company @relation(fields: [companyId], references: [id], onDelete: Cascade)
 
   application application[]
 }
 
 model application {
-  id        String   @id @default(uuid())
-  userId    String
-  jobId     String
-  status    String
-  createdAt DateTime @default(now())
-  comemntId String
+  id         String   @id @default(uuid())
+  userId     String
+  jobId      String
+  status     String
+  cvUrl      String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now())
+  comemntId  String
+  referralId String
 
   comment comment[]
 
-  users Users @relation(fields: [userId], references: [id], onDelete: Cascade)
-  job   job   @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  users   Users   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  job     job     @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  company company @relation(fields: [comemntId], references: [id], onDelete: Cascade)
 }
 
 model company {
@@ -93,8 +94,9 @@ model company {
   location    String
   description String
 
-  comment comment[]
-  job     job[]
+  comment     comment[]
+  job         job[]
+  application application[]
 }
 
 model comment {
