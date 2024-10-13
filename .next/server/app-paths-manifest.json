@@ -1,6 +1,9 @@
 {
   "/page": "app/page.js",
-  "/(auth)/resetPassword/[verificationCode]/page": "app/(auth)/resetPassword/[verificationCode]/page.js",
-  "/(auth)/signup/page": "app/(auth)/signup/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/admin/jobs/page": "app/admin/jobs/page.js",
+  "/applications/page": "app/applications/page.js",
+  "/applications/referals/page": "app/applications/referals/page.js",
+  "/applications/closed/page": "app/applications/closed/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/admin/users/page": "app/admin/users/page.js"
 }
