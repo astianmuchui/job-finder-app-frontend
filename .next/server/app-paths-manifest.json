@@ -1,9 +1,4 @@
 {
-  "/page": "app/page.js",
-  "/admin/jobs/page": "app/admin/jobs/page.js",
-  "/applications/page": "app/applications/page.js",
-  "/applications/referals/page": "app/applications/referals/page.js",
-  "/applications/closed/page": "app/applications/closed/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/admin/users/page": "app/admin/users/page.js"
+  "/admin/applications/page": "app/admin/applications/page.js",
+  "/admin/page": "app/admin/page.js"
 }
