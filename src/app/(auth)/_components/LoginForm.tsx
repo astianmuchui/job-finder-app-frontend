@@ -26,7 +26,7 @@ const LoginForm = () => {
     });
 
     const onSubmit: SubmitHandler<LoginSchema> = (data) => {
-        axios.post("http://localhost:3000/api/login", data).then((response) => {
+        axios.post("http://localhost:3000/api/auth/login", data).then((response) => {
             if(response.status === 200){
                 router.push("/");
             }

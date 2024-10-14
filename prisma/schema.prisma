@@ -61,13 +61,13 @@ model job {
   location    String
   type        String
   salary      Int
+  companyName String
   companyId   String
   deadline    DateTime
   createdAt   DateTime @default(now())
 
-  company company @relation(fields: [companyId], references: [id], onDelete: Cascade)
-
   application application[]
+  company     company       @relation(fields: [companyId], references: [id])
 }
 
 model application {
@@ -75,17 +75,15 @@ model application {
   userId     String
   jobId      String
   status     String
-  cvUrl      String
+  cvUrl      String?
   createdAt  DateTime @default(now())
   updatedAt  DateTime @default(now())
-  comemntId  String
+  commentId  String?
   referralId String
 
-  comment comment[]
-
-  users   Users   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  job     job     @relation(fields: [jobId], references: [id], onDelete: Cascade)
-  company company @relation(fields: [comemntId], references: [id], onDelete: Cascade)
+  users   Users    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  job     job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  comment comment? @relation(fields: [commentId], references: [id], onDelete: Cascade)
 }
 
 model company {
@@ -94,18 +92,17 @@ model company {
   location    String
   description String
 
-  comment     comment[]
-  job         job[]
-  application application[]
+  comment comment[]
+  job     job[]
 }
 
 model comment {
-  id            String   @id @default(uuid())
-  companyId     String
-  applicationId String
-  comment       String
-  createdAt     DateTime @default(now())
+  id        String   @id @default(uuid())
+  companyId String
+  comment   String
+  createdAt DateTime @default(now())
 
-  company     company     @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  application application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  application application[]
+
+  company company @relation(fields: [companyId], references: [id], onDelete: Cascade)
 }

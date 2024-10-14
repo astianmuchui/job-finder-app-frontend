@@ -1,15 +1,35 @@
 import {Search} from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 
-const SearchBar = () => {
+type SearchBarProps = {
+    placeholder: string;
+}
+
+const SearchBar = ({placeholder}: SearchBarProps) => {
+    const searchParams = useSearchParams();
+    const pathname = usePathname();
+    const {replace} = useRouter();
+
+
+    function handleSearch(term: string) {
+        const params = new URLSearchParams(searchParams);
+        if (term) {
+            params.set('query', term);
+        } else {
+            params.delete('query');
+        }
+        replace(`${pathname}?${params.toString()}`);
+    }
+
     return (
         <div
             className={"flex flex-row items-center p-1 lg:w-[100%] h-16 mt-4 lg:flex lg:flex-row lg:items-center lg:justify-between lg:border-2 lg:p-2  bg-white rounded-2xl"}>
             <div className={"flex flex-row items-center pl-2"}>
 
                 <Search size={20} className={"text-black/40"}/>
-                <input type="text" placeholder="Find a previous application ..."
+                <input type="text" placeholder={placeholder} onChange={(e) => handleSearch(e.target.value)}  defaultValue={searchParams.get('query')?.toString()}
                        className="p-2 rounded-lg border-0 focus:outline-none focus:ring-0"/>
 
             </div>
