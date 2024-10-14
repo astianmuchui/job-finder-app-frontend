@@ -1,16 +1,27 @@
 'use client'
+import {  Modal } from "flowbite-react";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import SearchBar from "@/app/applications/_components/SearchBar";
-import {ChevronRight} from "lucide-react";
+import {Calendar, Clock, Eye, MessageSquare} from "lucide-react";
 import {Application} from "@/lib/Types";
+import React, {useState} from "react";
+import {Separator} from "@/components/ui/separator";
 
 type ApplicationProps = {
     applications: Application[];
     placeholder: string;
 }
 const ApplicationComponent = ({applications,placeholder} : ApplicationProps) => {
+    const [openModal, setOpenModal] = useState(false);
+    const [selectedApplication, setSelectedApplication] = useState<Application | null>(null);
+
+    const handleViewClick = (application: Application) => {
+        setSelectedApplication(application);
+        setOpenModal(true);
+    };
+
 
 
     return (
@@ -32,14 +43,65 @@ const ApplicationComponent = ({applications,placeholder} : ApplicationProps) => 
                             </div>
                             <div className="flex justify-between items-center">
                                 <span className="text-sm text-gray-500">Deadline: {app.deadline}</span>
-                                <Button variant="ghost" size="sm" >
-                                    View <ChevronRight className="ml-2 h-4 w-4" />
+                                <Button variant="outline" size="sm" onClick={() => handleViewClick(app)}>
+                                    <Eye className="h-4 w-4 mr-2" />
+                                    View
                                 </Button>
                             </div>
                         </CardContent>
                     </Card>
                 ))}
             </div>
+            <Modal className={"w-[40%] rounded-none"}  dismissible show={openModal} onClose={() => setOpenModal(false)}>
+                <Modal.Body>
+                    {selectedApplication && (
+                        <Card className="max-w-3xl mx-auto">
+                            <CardHeader>
+                                <div className="flex justify-between items-start">
+                                    <div>
+                                        <CardTitle className="text-3xl">{selectedApplication.title}</CardTitle>
+                                        <CardDescription className="text-xl mt-2">{selectedApplication.companyName}</CardDescription>
+                                    </div>
+                                    <Badge variant={selectedApplication.status === 'referred' ? 'default' : 'secondary'} className="text-lg">
+                                        {selectedApplication.status}
+                                    </Badge>
+                                </div>
+                            </CardHeader>
+                            <CardContent className="space-y-6">
+                                <div className="flex space-x-6">
+                                    <div className="flex items-center">
+                                        <Calendar className="h-5 w-5 mr-2" />
+                                        <span>Applied: {selectedApplication.createdAt}</span>
+                                    </div>
+                                    <div className="flex items-center">
+                                        <Clock className="h-5 w-5 mr-2" />
+                                        <span>Deadline: {selectedApplication.deadline}</span>
+                                    </div>
+                                </div>
+
+                                <Separator />
+
+
+
+                                {selectedApplication.comments && (
+                                    <div>
+                                        <h3 className="text-xl font-semibold mb-2">Reviewer Comments</h3>
+                                        <div className="bg-secondary p-4 rounded-md">
+                                            <div className="flex items-start">
+                                                <MessageSquare className="h-5 w-5 mr-2 mt-1" />
+                                                <p>{selectedApplication.comments}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </CardContent>
+                        </Card>
+                    )}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={() => setOpenModal(false)}>Close</Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     )
 
