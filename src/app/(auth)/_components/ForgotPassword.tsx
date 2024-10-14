@@ -20,7 +20,7 @@ const {register, handleSubmit, formState: {errors, isSubmitting}} = useForm<Forg
 const [serverError, setServerError] = useState<string | null>(null);
 
 const onSubmit: SubmitHandler<ForgotPasswordSchema> = (data) => {
-    axios.post("http://localhost:3000/api/forgotPassword", data).then((response) => {
+    axios.post("http://localhost:3000/api/auth/forgotPassword", data).then((response) => {
         console.log(response.data);
         if(response.status === 200){
             console.log("Email sent successfully");

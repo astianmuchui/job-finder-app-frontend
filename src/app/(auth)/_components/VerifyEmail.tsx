@@ -40,7 +40,7 @@ const VerifyEmail = () => {
 
 
     function onSubmit(data: z.infer<typeof VerifyEmailSchema>) {
-        axios.post("http://localhost:3000/api/verifyEmail", data).then((response) => {
+        axios.post("http://localhost:3000/api/auth/verifyEmail", data).then((response) => {
                 if (response.status === 200) {
                     router.push("/login")
                 }
