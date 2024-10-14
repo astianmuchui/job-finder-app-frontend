@@ -25,12 +25,27 @@ export async function GET() {
                 where: {
                     userId: user.id,
                     status: 'under_review'
+                },
+                include: {
+                    job: true,
+                    comment: true,
                 }
             }
         );
 
+        const responseApplications = applications.map((application) => ({
+            id: application.id,
+            jobTitle: application.job.title,
+            companyName: application.job.companyName,
+            dateApplied: application.createdAt,
+            deadline: application.job.deadline,
+            status: application.status,
+            comment: application.comment.comment
+        }));
+
+
         return NextResponse.json(
-            {applications},
+            {responseApplications},
             {status: 200}
         );
     }catch (e) {
