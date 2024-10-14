@@ -37,10 +37,11 @@ export async function GET() {
             id: application.id,
             jobTitle: application.job.title,
             companyName: application.job.companyName,
+            cvUrl: application.cvUrl,
             dateApplied: application.createdAt,
             deadline: application.job.deadline,
             status: application.status,
-            comment: application.comment.comment
+            comment: application.comment?.comment
         }));
 
 
