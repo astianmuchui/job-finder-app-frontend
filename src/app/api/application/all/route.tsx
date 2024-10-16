@@ -33,11 +33,12 @@ export async function GET() {
         const responseApplications = applications.map((application) => ({
             id: application.id,
             jobTitle: application.job.title,
-            companyName: application.job.companyName, // Use job.company, or "Unknown" if job is null
+            companyName: application.job.companyName,
+            cvUrl: application.cvUrl,
             dateApplied: application.createdAt,
             deadline: application.job.deadline,
             status: application.status,
-            comment: application.comment.comment // Include comment text if it exists
+            comment: application.comment?.comment
         }));
 
 
