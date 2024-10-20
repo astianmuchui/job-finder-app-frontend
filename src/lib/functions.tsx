@@ -1,4 +1,4 @@
-import {lucia} from "@/lib/lucia";
+// import {lucia} from "@/lib/lucia";
 import prisma from "@/lib/prisma";
 import {generateRandomString, alphabet, sha256} from "oslo/crypto";
 import {createDate, TimeSpan} from "oslo";

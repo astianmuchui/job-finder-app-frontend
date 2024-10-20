@@ -1,7 +1,7 @@
 import RootLayout from "../layout"
-import Image from "next/image"
-import Link from "next/link"
-import Modal from "@/components/Modal"
+// import Image from "next/image"
+// import Link from "next/link"
+// import Modal from "@/components/Modal"
 
 const page = () => {
   return (
