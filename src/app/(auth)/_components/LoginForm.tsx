@@ -84,7 +84,7 @@ const LoginForm = () => {
 
                     <div className={"flex flex-row justify-center items-center space-x-2"}>
                         <p className={"text-black"}>
-                            Don't have an account?
+                            Don&apos;t have an account?
                         </p>
                         <a href="/signup" className={"text-purple-800/70 hover:text-purple-900/70"}>
                             Sign Up

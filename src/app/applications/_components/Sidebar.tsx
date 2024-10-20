@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {CalendarClock, CalendarX, HomeIcon, LogOut, NotebookPen, PaperclipIcon, Search, UserCog2Icon, UserIcon, UserPen, UsersRound} from "lucide-react";
+import {CalendarClock, CalendarX, HomeIcon, LogOut, NotebookPen, Search , UsersRound} from "lucide-react";
 
 export default function Sidebar() {
     return (

@@ -1,4 +1,4 @@
-import {BadgeDollarSign, BriefcaseBusiness, Cpu, Figma, GraduationCap, HeartPulse, Twitch} from "lucide-react";
+import {BadgeDollarSign, Cpu, Figma, GraduationCap, HeartPulse, Twitch} from "lucide-react";
 
 export const  name = "GigHaven";
 export const Highlight = ({
@@ -48,7 +48,7 @@ export const CARDS = [
         designation: "Refine Your Job Search",
         content: (
             <p>
-                Search efficiently by filtering job opportunities by categories. Whether you're looking for specific roles, industries, or levels,
+                Search efficiently by filtering job opportunities by categories. Whether you&apos;re looking for specific roles, industries, or levels,
                 our advanced filters make it easy to find the jobs that best suit your expertise and interests.
             </p>
         ),
