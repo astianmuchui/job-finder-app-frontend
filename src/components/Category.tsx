@@ -1,5 +1,5 @@
 import CompanyMarquee from "@/components/CompanyMarquee";
-import {ArrowBigLeftDash, ArrowBigRightDash, ChevronsRight, MoveRight} from "lucide-react";
+import {ArrowBigLeftDash, ArrowBigRightDash, MoveRight} from "lucide-react";
 import CategoryCard from "@/components/CategoryCard";
 import React, {useState} from "react";
 

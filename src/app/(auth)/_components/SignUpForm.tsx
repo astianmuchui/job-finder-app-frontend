@@ -32,6 +32,8 @@ const SignUpForm = () => {
     const router = useRouter();
     const onSubmit: SubmitHandler<SignupSchema> = async (data) => {
         const { confirmPassword, ...rest } = data; // Exclude confirmPassword from submitted data
+
+        console.log(confirmPassword);
         axios.post(
             "http://localhost:3000/api/auth/signup",
             rest
