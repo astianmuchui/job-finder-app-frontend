@@ -28,7 +28,8 @@ const ResetPassword = () => {
 
     const onSubmit: SubmitHandler<ResetSchema> = (data) => {
         const {confirmPassword, ...rest} = data;
-        axios.post(`http://localhost:3000/api/resetPassword/${verificationCode}`, rest).then((response) => {
+        console.log(confirmPassword);
+        axios.post(`http://localhost:3000/api/auth/resetPassword/${verificationCode}`, rest).then((response) => {
             console.log(response.data);
             if (response.status === 200) {
                 router.push("/login");

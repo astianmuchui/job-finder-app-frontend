@@ -10,6 +10,7 @@ export async function POST() {
     }
 
     const { user, session } = result;
+    console.log(user);
 
     if (!session) {
         return NextResponse.json({ error: "Unauthorized, no session" }, { status: 401 });

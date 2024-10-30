@@ -26,7 +26,7 @@ const LoginForm = () => {
     });
 
     const onSubmit: SubmitHandler<LoginSchema> = (data) => {
-        axios.post("http://localhost:3000/api/login", data).then((response) => {
+        axios.post("http://localhost:3000/api/auth/login", data).then((response) => {
             if(response.status === 200){
                 router.push("/");
             }
@@ -84,7 +84,7 @@ const LoginForm = () => {
 
                     <div className={"flex flex-row justify-center items-center space-x-2"}>
                         <p className={"text-black"}>
-                            Don't have an account?
+                            Don&apos;t have an account?
                         </p>
                         <a href="/signup" className={"text-purple-800/70 hover:text-purple-900/70"}>
                             Sign Up

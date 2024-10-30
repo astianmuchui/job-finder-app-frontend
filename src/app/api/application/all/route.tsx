@@ -20,16 +20,30 @@ export async function GET() {
             return NextResponse.json({error: "Unauthorized"}, {status: 401});
         }
 
-        const applications = await prisma.application.findMany(
-            {
-                where: {
-                    userId: user.id
-                }
-            }
-        );
+        const applications = await prisma.application.findMany({
+            where: {
+                userId: user.id
+            },
+            include: {
+                job: true,
+                comment: true, // Fetch the comment if it exists (optional)
+            },
+        });
+
+        const responseApplications = applications.map((application) => ({
+            id: application.id,
+            jobTitle: application.job.title,
+            companyName: application.job.companyName,
+            cvUrl: application.cvUrl,
+            dateApplied: application.createdAt,
+            deadline: application.job.deadline,
+            status: application.status,
+            comment: application.comment?.comment
+        }));
+
 
         return NextResponse.json(
-            {applications},
+            {responseApplications},
             {status: 200}
         );
     } catch (e) {

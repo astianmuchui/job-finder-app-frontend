@@ -1,6 +1,6 @@
 import RootLayout from "../layout";
-import Link from "next/link";
-import { PlusIcon } from "lucide-react";
+// import Link from "next/link";
+// import { PlusIcon } from "lucide-react";
 import Modal from "@/components/Modal";
 
 const page = () => {
