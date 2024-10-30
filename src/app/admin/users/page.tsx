@@ -14,7 +14,7 @@ const page = () => {
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-5 ">
                     <div className="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-3  pt-1 bg-white ">
                         <div>
-                            <button className="bg-gradient-to-br cursor-pointer  from-purple-700/80 via-purple-800/70 to-purple-900 p-2 text-sm rounded-xl mt-1 hover:bg-gradient-to-tr" id="trigger">
+                            <button className="bg-gradient-to-br cursor-pointer text-white  from-purple-700/80 via-purple-800/70 to-purple-900 p-2 text-sm rounded-xl mt-1 hover:bg-gradient-to-tr" id="trigger">
                                 Add new
                             </button>
                         </div>
