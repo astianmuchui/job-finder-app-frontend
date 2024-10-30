@@ -3,12 +3,14 @@ import { useEffect, useRef } from "react";
 import { Chart } from "chart.js/auto";
 
 const LineGraph = () => {
-  const chartRef = useRef(null);
+  const chartRef = useRef<HTMLCanvasElement | null>(null);
+
 
   useEffect(() => {
+    if (!chartRef.current) return;
     const ctx = chartRef.current.getContext("2d");
-
-    const myChart = new Chart(ctx, {
+    console.log(ctx)
+    const myChart = new Chart(chartRef.current, {
       type: "line",
       data: {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
