@@ -73,7 +73,7 @@ const config: Config = {
         flowbitePlugin,
         require("tailwindcss-animate"),
 
-        function ({addUtilities}) {
+        function ({addUtilities}: { addUtilities: (utilities: Record<string, any>, variants?: string[]) => void }) {
             const newUtilities = {
                 ".scrollbar-thin": {
                     scrollbarWidth: "thin",

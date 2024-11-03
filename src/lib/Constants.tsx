@@ -1,4 +1,5 @@
 import {BadgeDollarSign, Cpu, Figma, GraduationCap, HeartPulse, Twitch} from "lucide-react";
+import { cn } from "./utils";
 
 export const  name = "GigHaven";
 export const Highlight = ({
