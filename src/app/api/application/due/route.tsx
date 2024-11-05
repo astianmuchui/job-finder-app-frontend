@@ -1,20 +1,15 @@
-import {lucia} from "@/lib/lucia";
+import {validateRequest} from "@/lib/lucia";
 import prisma from "@/lib/prisma";
 import {NextResponse} from "next/server";
-import {cookies} from "next/headers";
 
 export async function GET() {
     try {
-        const sessionId = cookies().get(lucia.sessionCookieName)?.value ?? null;
-
-
-        if (!sessionId) {
-            console.log("no session id")
-            return NextResponse.json({error: "Unauthorized"}, {status: 401});
+        const result  =  await validateRequest();
+        if(!result){
+            NextResponse.json({message: "Unauthorised"} ,{status: 401
+            })
         }
-
-        const {user} = await lucia.validateSession(sessionId);
-
+        const { user } = result ?? {};
 
         if (!user) {
             return NextResponse.json({error: "Unauthorized"}, {status: 401});
