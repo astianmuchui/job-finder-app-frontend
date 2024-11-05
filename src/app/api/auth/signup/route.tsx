@@ -7,7 +7,6 @@ import {generateEmailVerificationCode} from "@/lib/functions";
 import {sendEmail} from "@/lib/email";
 
 export  async  function POST(req: NextRequest ) {
-    console.log("first signup request");
     try {
         console.log("Signup request received");
 
